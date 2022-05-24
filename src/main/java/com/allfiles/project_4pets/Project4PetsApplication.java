@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Project4PetsApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(Project4PetsApplication.class, args);
 	}
