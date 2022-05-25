@@ -1,7 +1,11 @@
 package com.allfiles.project_4pets.user;
 
+import com.allfiles.project_4pets.pet.Pet;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "User")
@@ -24,29 +28,28 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
     @Column(nullable = false, unique = true, name = "description")
     private String description;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "ID=" + ID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", description='" + description + '\'' +
-                ", gender='" + gender + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                '}';
-    }
 
     @Column(nullable = false)
     private String gender;
 
     @Column(nullable = false)
     private String dateOfBirth;
+
+    /*@OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "userPet_fk", referencedColumnName = "ID")
+    private List<Pet> pets = new ArrayList<>();
+
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }*/
 
     public Integer getID() {
         return ID;
@@ -119,4 +122,20 @@ public class User {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "ID=" + ID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", description='" + description + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
+
 }
