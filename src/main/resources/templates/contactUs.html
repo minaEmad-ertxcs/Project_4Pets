@@ -16,41 +16,8 @@
 
 </head>
 
-<body>
-    <!--navbar-->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <ul class="navbar-nav">
-            <a class="nav-item" href="#">
-                <img src="css/logo.png" width="60" height="60">
-            </a>
-
-            <div id="takeAction" class="collapse navbar-collapse">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">book an appointment</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">contact us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">about us</a>
-                </li>
-            </div>
-        </ul>
-        <a href="#takeAction" data-toggle="collapse" class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span>
-        </a>
-    </nav>
-    <!--navbar-->
-
-
-
-
-
-
-
+<body th:style="'background-image: url(/image/image.jpg);'">
+<div th:replace="~{/fragments/navbar :: navigationBar}"></div>
 
 
     <section class="contactUs">

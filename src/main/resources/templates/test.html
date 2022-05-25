@@ -20,7 +20,8 @@
 
 </head>
 
-<body>
+<body th:style="'background-image: url(/image/image.jpg);'">
+<div th:replace="~{/fragments/navbar :: navigationBar}"></div>
     <div id="menu" class="sidemenu bg-light">
         <a href="#">Food</a>
         <a href="#">Treats</a>

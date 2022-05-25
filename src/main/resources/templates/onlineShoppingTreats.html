@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treats</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/onlineShopping.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/onlineShopping.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <style>
         body {
             background-image: url("css/image.jpg");
@@ -17,44 +17,18 @@
 
 </head>
 
-<body>
+<body th:style="'background-image: url(/image/image.jpg);'">
     <!--navbar-->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <ul class="navbar-nav">
-            <div class="openbtn" onclick="openNav()">
-                &#9776;</div>
-            <a class="nav-item" href="#">
-                <img src="css/logo.png" width="60" height="60">
-            </a>
-
-            <div id="takeAction" class="collapse navbar-collapse">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">book an appointment</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">contact us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">about us</a>
-                </li>
-            </div>
-        </ul>
-        <a href="#takeAction" data-toggle="collapse" class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span>
-        </a>
-    </nav>
+    <div th:replace="~{/fragments/navbar :: navigationBar}"></div>
     <!--navbar-->
 
     <div id="mySidebar" class="sidebar">
-        <a href="onlineShoppingFood.html" class="active">Food</a>
-        <a href="onlineShoppingTreats.html">Treats</a>
-        <a href="onlineShoppingAccessories.html">Accessories</a>
-        <a href="onlineShoppingToys.html">Toys</a>
-        <a href="onlineShoppingMedicalDrugs.html">Medical Drugs</a>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a th:href="@{/onlineShoppingFood.html}" class="active">Food</a>
+        <a th:href="@{/onlineShoppingTreats.html}">Treats</a>
+        <a th:href="@{/onlineShoppingAccessories.html}">Accessories</a>
+        <a th:href="@{/onlineShoppingToys.html}">Toys</a>
+        <a th:href="@{/onlineShoppingMedicalDrugs.html}">Medical Drugs</a>
+        <a th:href="@{/javascript:void(0)}" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
     <h1 class="mainHeading">Treats</h1>
 

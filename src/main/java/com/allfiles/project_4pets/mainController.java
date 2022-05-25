@@ -8,6 +8,6 @@ public class mainController {
 
     @GetMapping("")
     public String showHomePage() {
-        return "bookAnAppointment2.html";
+        return "login.html";
     }
 }
