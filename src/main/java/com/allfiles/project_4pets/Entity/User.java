@@ -9,10 +9,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
 
-    @Column(nullable = false, name = "firstName")
+    @Column(nullable = false, name = "first_Name")
     private String firstName;
 
-    @Column(nullable = false, name = "lastName")
+    @Column(nullable = false, name = "last_Name")
     private String lastName;
 
     @Column(nullable = false, unique = true, name = "email")
@@ -24,29 +24,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true, name = "description")
-    private String description;
-
     @Column(nullable = false)
     private String gender;
 
     @Column(nullable = false)
     private String dateOfBirth;
-
-    private boolean accountVerified;
-
-    /*@OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "userPet_fk", referencedColumnName = "ID")
-    private List<Pet> pets = new ArrayList<>();
-
-
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }*/
 
     public Integer getID() {
         return ID;
@@ -112,38 +94,11 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public boolean isAccountVerified() {
-        return accountVerified;
-    }
-
-    public void setAccountVerified(boolean accountVerified) {
-        this.accountVerified = accountVerified;
-    }
 
     @Override
     public String toString() {
-        return "User{" +
-                "ID=" + ID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", description='" + description + '\'' +
-                ", gender='" + gender + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                '}';
+        return "User{" + "ID=" + ID + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", password='" + password + '\'' + ", gender='" + gender + '\'' + ", dateOfBirth='" + dateOfBirth + '\'' + '}';
     }
-
 
 
 }

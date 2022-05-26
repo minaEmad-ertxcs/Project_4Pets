@@ -1,7 +1,6 @@
 package com.allfiles.project_4pets.Objects;
 
 public class UserDTO {
-
     private String firstName;
     private String lastName;
     private String email;
