@@ -10,17 +10,21 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+    private VerificationTokenService verificationTokenService;
 
     private final ModelMapper modelMapper;
-
-    public UserService(UserRepository URepo, ModelMapper modelMapper) {
+    private final EmailSevice emailSevice;
+    public UserService(UserRepository userRepository, VerificationTokenService verificationTokenService, ModelMapper modelMapper, EmailSevice emailSevice) {
+        this.userRepository = userRepository;
+        this.verificationTokenService = verificationTokenService;
         this.modelMapper = modelMapper;
-        this.userRepository = URepo;
+        this.emailSevice = emailSevice;
     }
 
     public List<User> ListAll() {
@@ -43,8 +47,20 @@ public class UserService {
 
     public User signup (UserDTO userDTO){
         User user = new User();
+        user.setEnabled(false);
         modelMapper.map(userDTO, user);
-        return save(user);
+        Optional<User>saved=Optional.of(save(user));
+        saved.ifPresent( u->{
+            try {
+                String token= UUID.randomUUID().toString();
+                verificationTokenService.save(saved.get(),token);
+                emailSevice.sendemail(u);
+            }
+            catch (Exception e){
+               e.printStackTrace();
+            }
+        });
+        return saved.get();
     }
 
 }

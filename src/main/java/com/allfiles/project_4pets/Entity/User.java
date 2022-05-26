@@ -1,10 +1,12 @@
 package com.allfiles.project_4pets.Entity;
 
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "User")
-public class User {
+public class User   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
@@ -27,9 +29,10 @@ public class User {
     @Column(nullable = false)
     private String gender;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String dateOfBirth;
 
+    private Boolean Enabled;
     public Integer getID() {
         return ID;
     }
@@ -94,7 +97,16 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Boolean getEnabled() {
+        return Enabled;
+    }
 
+    public void setEnabled(Boolean enabled) {
+        Enabled = enabled;
+    }
+public boolean isEnabled(){
+        return false;
+}
     @Override
     public String toString() {
         return "User{" + "ID=" + ID + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", password='" + password + '\'' + ", gender='" + gender + '\'' + ", dateOfBirth='" + dateOfBirth + '\'' + '}';
