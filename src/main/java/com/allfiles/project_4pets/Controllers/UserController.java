@@ -1,5 +1,8 @@
-package com.allfiles.project_4pets.user;
+package com.allfiles.project_4pets.Controllers;
 
+import com.allfiles.project_4pets.Entity.User;
+import com.allfiles.project_4pets.Repository.UserRepository;
+import com.allfiles.project_4pets.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService Service;
 
-    @GetMapping("/signup")
+    /*@GetMapping("/signup")
     public String ShowSignUp(Model model) {
         model.addAttribute("User", new User());
         return "signup";
@@ -25,5 +28,5 @@ public class UserController {
         userRepository.save(user);
         return "redirect:/";
 
-    }
+    }*/
 }

@@ -1,11 +1,6 @@
-package com.allfiles.project_4pets.user;
-
-import com.allfiles.project_4pets.pet.Pet;
+package com.allfiles.project_4pets.Entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "User")
@@ -37,6 +32,8 @@ public class User {
 
     @Column(nullable = false)
     private String dateOfBirth;
+
+    private boolean accountVerified;
 
     /*@OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "userPet_fk", referencedColumnName = "ID")
@@ -123,6 +120,15 @@ public class User {
         this.description = description;
     }
 
+
+    public boolean isAccountVerified() {
+        return accountVerified;
+    }
+
+    public void setAccountVerified(boolean accountVerified) {
+        this.accountVerified = accountVerified;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -137,5 +143,7 @@ public class User {
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
+
+
 
 }

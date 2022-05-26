@@ -1,6 +1,4 @@
-package com.allfiles.project_4pets.pet;
-
-import com.allfiles.project_4pets.user.User;
+package com.allfiles.project_4pets.Entity;
 
 import javax.persistence.*;
 

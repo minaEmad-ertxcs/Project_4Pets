@@ -1,9 +1,9 @@
-package com.allfiles.project_4pets.pet;
+package com.allfiles.project_4pets.Controllers;
 
-import com.allfiles.project_4pets.user.UserRepository;
+import com.allfiles.project_4pets.Repository.PetRepository;
+import com.allfiles.project_4pets.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 
 @Controller
 public class PetController {
